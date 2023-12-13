@@ -4,8 +4,8 @@
 }
 
 body {
-    background-color: #212226;
-    font-family: Arial,sans-serif!important;
+    background-color: #121418;
+    font-family: Arial, sans-serif !important;
 }
 
 nav {
@@ -15,27 +15,32 @@ nav {
     color: #EAECEF;
     align-items: center;
     height: 50px;
-    padding: 0 30px ;
+    padding: 0 30px;
 }
-nav h3{
+
+nav h3 {
     cursor: pointer;
-    color: orange;
+    color: rgb(246, 70, 93);
 }
-nav ul{
+
+nav ul {
     display: flex;
     list-style: none;
     padding: 60px;
 }
-nav ul li{
+
+nav ul li {
     padding: 5px 10px;
     cursor: pointer;
 }
-.menu-list{
+
+.menu-list {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.menu-bar{
+
+.menu-bar {
     width: 100%;
     border-bottom: 1px solid rgb(67, 67, 67);
     display: flex;
@@ -48,62 +53,94 @@ nav ul li{
     align-items: center;
     text-align: center;
 }
-.left-container{
- width: 20%;
-  height: 715px;
-  border-right: 1px solid rgb(67, 67, 67);
-  color: #EAECEF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.left-container {
+    width: 20%;
+    height: 715px;
+    border-right: 1px solid rgb(67, 67, 67);
+    color: #EAECEF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.left-container table{
+
+.left-container table {
     padding-top: 45px;
 }
-.middle-container{
+
+.middle-container {
     margin-top: -150px;
 }
+
 .button-area {
     height: 50px;
     width: 99%;
     border-bottom: 1px solid rgb(67, 67, 67);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
     padding-left: 10px;
     color: rgb(132, 142, 156);
     font-size: 14px;
 }
+
 .button-area button {
-    background-color: #212226;
+    background-color: #121418;
     color: rgb(132, 142, 156);
     cursor: pointer;
     border: none;
     transition: color 0.3s, background-color 0.3s;
 }
-.button-area button:hover{
-    color: orange;
+
+.button-area button:hover {
+    color: rgb(246, 70, 93);
 }
+
 .button-area button.selected {
-    color: orange;
-    background-color: #212226;
+    color: rgb(14, 203, 129);
 }
+
+.right-button-side {
+    display: flex;
+    gap: 10px;
+}
+
+.left-button-side {
+    color: white;
+    padding-right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.left-button-side button{
+    margin: 2px;
+    height: 17px;
+    width: 20px;
+    background-image: url('./images/empty_heart1.png');
+    background-size: cover;
+}
+
 #tvchart {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 10px;
 }
-.right-container{
+
+.right-container {
     width: 20%;
     height: 715px;
     border-left: 1px solid rgb(67, 67, 67);
     color: #EAECEF;
-  }
-.left-menu{
+    overflow-y: scroll;
+}
+
+.left-menu {
     width: 80%;
 }
-.right-menu{
+
+.right-menu {
     width: 19.8%;
     border-left: 1px solid rgb(67, 67, 67);
     height: 50px;
@@ -112,7 +149,8 @@ nav ul li{
     justify-content: center;
     align-items: center;
 }
-.user-info{
+
+.user-info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,18 +163,21 @@ nav ul li{
     border: none;
     color: #151515;
     border-radius: 3px;
-    background-color: orange;
+    background-color: rgb(247, 247, 247);
     cursor: pointer;
 }
-.user-info img{
-    width: 30px;
-    height: 30px;
+
+.user-info img {
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
-table .first{
+
+table .first {
     color: rgb(14, 203, 129);
 }
-table .second{
+
+table .second {
     color: rgb(246, 70, 93);
 }
 
@@ -152,4 +193,27 @@ form select {
     color: white;
     border: none;
     outline: none;
+}
+
+.watch-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+.watch-item{
+    height: 40px;
+    width: 140px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+}
+.watch-item button{
+    background: none;
+    color: white;
+    border: none;
 }

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trade minds</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade minds</title>
+  <link rel="icon" href="/public/images/LOGO.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+ 
 </head>
+
 <body>
   <nav>
     <div class="menu-list">
@@ -19,209 +23,93 @@
     </div>
     <div class="user-info">
       <button class="logout">Log Out</button>
-      <img src="./images/user2.png" alt="">
+      <img src="./images/man.png" alt="">
     </div>
   </nav>
- <div class="menu-bar">
-<div class="left-menu">
-  <form action="/search" method="post">
-    <select id="inputElement">
-      <option value="BTCUSDT" selected>BTCUSDT</option>
-      <option value="ETHUSDC">ETHUSDC</option>
-      <option value="BTCFDUSD">BTCFDUSD</option>
-      <option value="ACMUSDT">ACMUSDT</option>
-    <option value="XRPBTC">XRPBTC</option>
-    <option value="EOSBTC">EOSBTC</option>
-    <option value="LTCBTC">LTCBTC</option>
+  <div class="menu-bar">
+    <div class="left-menu">
+      <form action="/search" method="post">
+        <select id="inputElement">
+          <option value="BTCUSDT" class="selStock">BTCUSDT</option>
+          <option value="ETHUSDC">ETHUSDC</option>
+          <option value="BTCFDUSD">BTCFDUSD</option>
+          <option value="ACMUSDT">ACMUSDT</option>
+          <option value="XRPBTC">XRPBTC</option>
+          <option value="EOSBTC">EOSBTC</option>
+          <option value="LTCBTC">LTCBTC</option>
 
-    </select>
-  </form>
-</div>
-  <div class="right-menu"><h2>Your Watchlist</h2></div>
- </div>
-    <div class="chart-container">
-      <div class="left-container">
-        <table cellspacing="20">
-          <tr>
-              <td class="first">Open:</td>
-              <td class="open second"></td>
-          </tr>
-          <tr>
-              <td class="first">High:</td>
-              <td class="high second"></td>
-          </tr>
-          <tr>
-              <td class="first">Low:</td>
-              <td class="low second"></td>
-          </tr>
-          <tr>
-              <td class="first">Close:</td>
-              <td class="close second"></td>
-          </tr>
-          <tr>
-              <td class="first">Volume:</td>
-              <td class="vol second"></td>
-          </tr>
-          <tr>
-              <td class="first">QAV:</td>
-              <td class="qav second"></td>
-          </tr>
-          <tr>
-              <td class="first">Trades:</td>
-              <td class="trades second"></td>
-          </tr>
-          <tr>
-              <td class="first">BAV:</td>
-              <td class="bav second"></td>
-          </tr>
+        </select>
+      </form>
+    </div>
+    <div class="right-menu">
+      <h2>Your Watchlist</h2>
+    </div>
+  </div>
+  <div class="chart-container">
+    <div class="left-container">
+      <table cellspacing="20">
+        <tr>
+          <td class="first">Open:</td>
+          <td class="open second"></td>
+        </tr>
+        <tr>
+          <td class="first">High:</td>
+          <td class="high second"></td>
+        </tr>
+        <tr>
+          <td class="first">Low:</td>
+          <td class="low second"></td>
+        </tr>
+        <tr>
+          <td class="first">Close:</td>
+          <td class="close second"></td>
+        </tr>
+        <tr>
+          <td class="first">Volume:</td>
+          <td class="vol second"></td>
+        </tr>
+        <tr>
+          <td class="first">QAV:</td>
+          <td class="qav second"></td>
+        </tr>
+        <tr>
+          <td class="first">Trades:</td>
+          <td class="trades second"></td>
+        </tr>
+        <tr>
+          <td class="first">BAV:</td>
+          <td class="bav second"></td>
+        </tr>
       </table>
-      </div>
-     <div class="middle-container">
+    </div>
+    <div class="middle-container">
       <div class="button-area">
-        Time
-   <button class="selected" data-value="1s">1s</button>
-    <button data-value="1m">1m</button>
-    <button data-value="15m">15m</button>
-    <button data-value="1H">1h</button>
-    <button data-value="4H">4h</button>
-    <button data-value="1D">1d</button>
-    <button data-value="1W">1w</button>
+        <div class="right-button-side">
+          <p>Time</p>
+          <button data-value="1s">1s</button>
+          <button class="selected" data-value="1m">1m</button>
+          <button data-value="15m">15m</button>
+          <button data-value="1H">1h</button>
+          <button data-value="4H">4h</button>
+          <button data-value="1D">1d</button>
+          <button data-value="1W">1w</button>
+        </div>
+        <div class="left-button-side">
+          <h2 class="coin-name">BTCUSDT</h2>
+          <button class="heart-btn"></button>
+        </div>
       </div>
       <div id="tvchart"></div>
-     </div>
-      <div class="right-container"></div>
     </div>
+    <div class="right-container">
+      <div class="watch-list">
+
+      </div>
+    </div>
+
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
-<script>
-const inputElement = document.getElementById("inputElement");
-const open = document.querySelector(".open");
-const high = document.querySelector(".high");
-const low = document.querySelector(".low");
-const close = document.querySelector(".close");
-const volume = document.querySelector(".vol");
-const qav = document.querySelector(".qav");
-const trades = document.querySelector(".trades");
-const bav = document.querySelector(".bav");
-const buttons = document.querySelectorAll('.button-area button');
-const log = console.log;
-
-const domElement = document.getElementById('tvchart');
-
-
-
-
-
-var chart = LightweightCharts.createChart(document.getElementById('tvchart'), {
-  width: window.innerWidth * 0.5,
-  height: window.innerHeight * 0.6,
-  timeScale: {
-    timeVisible: true,
-    secondsVisible: false,
-  },
-  layout: {
-    fontFamily: 'Arial,sans-serif', 
-    fontSize: 12, 
-    textColor: '#ffffff',
-    background: {
-      color: '#212226'
-    },
-  },
-  grid: {
-    vertLines: {
-      color: 'rgba(67, 67, 67,0.2)', 
-    },
-    horzLines: {
-      color: 'rgba(67, 67, 67,0.2)', 
-    },
-  },
-  crosshair: {
-    mode: LightweightCharts.CrosshairMode.Normal,
-  },
-
-  timeScale: {
-    borderColor: 'rgba(197, 203, 206, 0.8)', 
-    timeVisible: true,
-    borderVisible: true,
-    secondsVisible: false,
-  },
-});
-
-function resizeChart() {
-  chart.resize(window.innerWidth * 0.6, window.innerHeight * 0.6);
-}
-
-window.addEventListener('resize', resizeChart);
-window.addEventListener('load', resizeChart);
-
-const candleSeries = chart.addCandlestickSeries();
-candleSeries.applyOptions({
-  upColor: 'rgb(14, 203, 129)', // change as needed
-  downColor: 'rgb(246, 70, 93)', // change as needed
-  wickUpColor: 'rgb(14, 203, 129)', // change as needed
-  wickDownColor: 'rgb(246, 70, 93)', // change as needed
-  borderVisible: false,
-  borderUpColor: '#00ff00', // change as needed
-  borderDownColor: 'rgb(246, 70, 93)',
-});
-let counter = 0;
-const intervalInSeconds = 1;
-inputElement.value = "BTCUSDT";
-
-const selectedButton = document.querySelector('.button-area button.selected');
-
-
-let buttonValue = "1s";
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        buttons.forEach(btn => btn.classList.remove('selected'));
-        button.classList.add('selected');
-        // log(button.innerHTML)
-        buttonValue = button.innerHTML
-        log(buttonValue)
-      });
-    });
-
-const searchStocks = () => {
-  const inputData = inputElement.value;
-  fetch(`https://api.binance.com/api/v3/klines?symbol=${inputData}&interval=${buttonValue}&limit=1000`)
-    .then(res => res.json())
-    .then(data => {
-      const cdata = data.map(d => {
-        const Timestamp = (d[0] / 1000) + 19800;
-        const Open = parseFloat(d[1]).toFixed(4);
-        const High = parseFloat(d[2]).toFixed(4);
-        const Low = parseFloat(d[3]).toFixed(4);
-        const Close = parseFloat(d[4]).toFixed(4);
-        const Volume = parseFloat(d[5]).toFixed(4);
-        const QAV = d[7];
-        const Trades = d[8];
-        const BAV = d[9];
-        open.innerHTML = Open
-        high.innerHTML = High
-        low.innerHTML = Low
-        close.innerHTML = Close
-        volume.innerHTML = Volume
-        qav.innerHTML = QAV
-        trades.innerHTML = Trades
-        bav.innerHTML = BAV
-        return { time: Timestamp, open: parseFloat(d[1]), high: parseFloat(d[2]), low: parseFloat(d[3]), close: parseFloat(d[4]) }
-      });
-      candleSeries.setData(cdata);
-    })
-    .catch(err => log(err))
-}
-
-const callSearchStocks = () => {
-  searchStocks();
-  counter++;
-}
-
-callSearchStocks();
-const intervalId = setInterval(callSearchStocks, intervalInSeconds * 1000);
-
-
-
+<script src="client.js"></script>
 </script>
 </html>
